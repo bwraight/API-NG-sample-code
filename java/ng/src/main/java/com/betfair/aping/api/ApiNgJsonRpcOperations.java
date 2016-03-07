@@ -51,6 +51,10 @@ public class ApiNgJsonRpcOperations extends ApiNgOperations{
         Map<String, Object> params = new HashMap<String, Object>();
         params.put(LOCALE, locale);
         params.put(MARKET_IDS, marketIds);
+        params.put(PRICE_PROJECTION, priceProjection);
+        params.put(ORDER_PROJECTION, orderProjection);
+        params.put(MATCH_PROJECTION, matchProjection);
+        params.put("currencyCode", currencyCode);
         String result = getInstance().makeRequest(ApiNgOperation.LISTMARKETBOOK.getOperationName(), params, appKey, ssoId);
         if(ApiNGDemo.isDebug())
             System.out.println("\nResponse: "+result);
@@ -72,6 +76,7 @@ public class ApiNgJsonRpcOperations extends ApiNgOperations{
         params.put(FILTER, filter);
         params.put(SORT, sort);
         params.put(MAX_RESULT, maxResult);
+        params.put(MARKET_PROJECTION, marketProjection);
         String result = getInstance().makeRequest(ApiNgOperation.LISTMARKETCATALOGUE.getOperationName(), params, appKey, ssoId);
         if(ApiNGDemo.isDebug())
             System.out.println("\nResponse: "+result);
